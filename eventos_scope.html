@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app = "test">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+
+    <script src="vendor/angular.min.js"></script>
+</head>
+<body>
+
+
+    <div ng-controller="ControladorA">
+        <button ng-click="lanzarEventoAbajo()"> Hola</button>
+        <div ng-controller="ControladorB">
+
+            <button ng-click = "lanzarEventoArriba()">Lanzar evento arriba</button>
+
+        </div>
+
+    </div>
+
+    <!-- Controlador ejemplo watch -->
+    <div ng-controller="ControladorC">
+        <input type="text" ng-model="valor">
+
+    </div>
+    <script>
+        angular.module("test",[]);
+        angular.module("test").controller("ControladorA",function( $scope ){
+
+
+
+
+            $scope.lanzarEventoAbajo = function() {
+                debugger;
+                /*se usa broadcast para mandar mensajes a los controladores hijos*/
+                $scope.$broadcast("EventoAbajo","Hola controlador hijo");
+            };
+
+            $scope.$on("EventoArriba", function(evento, data){
+
+                alert(data);
+
+            });
+        });
+
+        angular.module("test").controller("ControladorB", function( $scope){
+
+            $scope.$on("EventoAbajo", function(evento, data){
+                alert(data);
+            });
+
+            $scope.lanzarEventoArriba = function(){
+                /*se usa emit para mandar mensajes a los controladores padres*/
+                $scope.$emit("EventoArriba", "Hola evento arriba");
+            };
+        });
+
+        angular.module("test").controller("ControladorC", function ($scope) {
+
+            $scope.$watch(
+
+                //REturn del valor que se quiere observar
+                function(){
+                    return $scope.valor;
+                },
+                //Aca me llega el observador de los cambios
+                function(nuevoValor, antiguoValor){
+                    var a = nuevoValor + " "+ antiguoValor;
+
+                    window.console.log(a);
+                }
+            );
+
+        });
+
+    </script>
+</body>
+</html>

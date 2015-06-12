@@ -1,0 +1,18 @@
+<h3>Peliculas</h3>
+
+<table class="table table-stripped">
+
+    <!--Table row-->
+    <tr ng-repeat="pelicula in peliculas">
+
+        <!--//Fila-->
+        <!-- Se utiliza :: para crear un one-time binding -->
+        <td>{{ ::pelicula.original_title}}</td>
+        <td>{{ ::pelicula.release_date}}</td>
+        <td>
+            <span class="badge">{{::pelicula.vote_average}}</span>
+        </td>
+    </tr>
+
+
+</table>

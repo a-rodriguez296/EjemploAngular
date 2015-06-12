@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app = "imbdcutre">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link rel="stylesheet" href="styles/css/bootstrap.min.css">
+
+    <!-- código para importar angular -->
+    <script src="vendor/angular.min.js"></script>
+
+    <!--Importar extensiones de Angular-->
+    <script src="vendor/angular-route.min.js"></script>
+    <script src="vendor/angular-route-segment.min.js"></script>
+    <script src="scripts/app.js"></script>
+
+    <!--Importar Controladores-->
+    <script src="scripts/controllers/PeliculasCtrl.js"></script>
+    <script src="scripts/controllers/SeriesCtrl.js"></script>
+    <script src="scripts/controllers/Navegacion.js"></script>
+
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>IMDB Cutre</h1>
+            <h2>Mi Súper Aplicación de Películas y Series</h2>
+        </header>
+
+
+        <nav ng-controller="NavegacionCtrl">
+            <ul class="nav nav-tabs">
+
+                <!--Con en ngClass se conecta al controlador Navegacion.js para saber si es active o no-->
+                <li role="presentation" ng-class="{ 'active': rutaEsPeliculas() }" >
+                    <a href="#/peliculas">Películas</a>
+                </li>
+
+                <!--Con en ngClass se conecta al controlador Navegacion.js para saber si es active o no-->
+                <li role="presentation" ng-class="{ 'active': rutaEsSeries() }">
+                    <a href="#/series">Series</a>
+                </li>
+            </ul>
+        </nav>
+        <!--Con esto se declara el nivel en la jerarquía de esta sección-->
+        <section app-view-segment="0"></section>
+    </div>
+
+</body>
+</html>
