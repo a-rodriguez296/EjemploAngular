@@ -1,6 +1,6 @@
 angular
     .module("imbdcutre")
-    .controller("PeliculasCtrl",["$scope","ApiService","Peliculas", function($scope, ApiService, Peliculas){
+    .controller("PeliculasCtrl",["$scope","Peliculas", function($scope, Peliculas){
 
         //Caso exitoso
         //PAra que la vista pueda acceder a cualquier función se debe poner $scope. De lo contrario, nadie puede ver esta función

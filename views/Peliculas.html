@@ -10,7 +10,11 @@
 
         <!--//Fila-->
         <!-- Se utiliza :: para crear un one-time binding -->
-        <td>{{ ::pelicula.original_title}}</td>
+        <td>
+            <!-- Como la url es dinamica se debe poner ng-href. Si fuera estática se pone href -->
+            <a ng-href="#/peliculas/{{ ::pelicula.id }}/detalles ">{{ ::pelicula.original_title}}</a>
+
+        </td>
 
         <!-- la salida de date:"shortDate" es el parametro que recibe estreno -->
         <td>{{ ::pelicula.release_date | date:"shortDate" | estreno }}</td>
