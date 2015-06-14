@@ -35,7 +35,13 @@ angular
         });
         $routeSegmentProvider.segment("series", {
                 controller: "SeriesCtrl",
-                templateUrl: "views/Series.html"
+                templateUrl: "views/Series.html",
+                resolve : {
+                    Series : ["ApiService", function(ApiService){
+
+                        return ApiService.obtenerDatos("tv/airing_today");
+                    }]
+                }
 
         });
 
