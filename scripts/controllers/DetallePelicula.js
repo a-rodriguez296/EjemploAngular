@@ -1,7 +1,8 @@
 angular
     .module("imbdcutre")
     //Es Scope es obligatorio
-    .controller("DetallePelicula",["$scope", function($scope){
+    .controller("DetallePelicula",["$scope","Pelicula", function($scope, Pelicula){
 
+        $scope.pelicula = Pelicula.data;
 
     }]);

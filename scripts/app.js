@@ -58,7 +58,17 @@ angular
 
         $routeSegmentProvider.segment("detalle_pelicula", {
 
-            
+            controller: "DetallePelicula",
+            templateUrl: "views/DetallePelicula.html",
+            resolve : {
+
+                // $routeParams es donde viene el id que llega dinamico
+                Pelicula : ["ApiService", "$routeParams", function(ApiService, $routeParams){
+
+                    //$routeParams. nombre que se establece en el segmentProvider.when . En este caso se puso id
+                    return ApiService.obtenerDatos("movie/" + $routeParams.id);
+                }]
+            }
         });
 
         $routeProvider.otherwise({
