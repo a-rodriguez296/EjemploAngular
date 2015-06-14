@@ -19,7 +19,19 @@ angular
 
         $routeSegmentProvider.segment( "peliculas", {
             controller: "PeliculasCtrl",
-            templateUrl: "views/Peliculas.html"
+            templateUrl: "views/Peliculas.html",
+
+
+            resolve : {
+                //Antes de llevarme a la vista html va a resolver lo que este aca dentro
+                //Inyección del ApiService
+                //Lo que se establece en el return siempre devuelve promesas
+                Peliculas : ["ApiService", function(ApiService){
+
+                    return ApiService.obtenerDatos("movie/upcoming");
+                }]
+
+            }
         });
         $routeSegmentProvider.segment("series", {
                 controller: "SeriesCtrl",

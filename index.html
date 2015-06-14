@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="styles/css/bootstrap.min.css">
 
     <!-- código para importar angular -->
+    <!-- Es recomendable cargar los vendor antes de los controladores pq dentro en ellos utilizo lo qu hay en vender -->
     <script src="vendor/angular.min.js"></script>
+    <script src="vendor/angular-locale_es-es.js"></script>
 
     <!--Importar extensiones de Angular-->
     <script src="vendor/angular-route.min.js"></script>
@@ -15,6 +17,7 @@
     <script src="scripts/app.js"></script>
 
     <!--Importar Controladores-->
+    <script src="scripts/values/Settings.js"></script>
     <script src="scripts/controllers/PeliculasCtrl.js"></script>
     <script src="scripts/controllers/SeriesCtrl.js"></script>
     <script src="scripts/controllers/Navegacion.js"></script>

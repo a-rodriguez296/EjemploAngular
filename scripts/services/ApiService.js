@@ -1,15 +1,15 @@
 angular
     .module("imbdcutre")
-    .service("ApiService", ["$http", function ($http){
+    .service("ApiService", ["$http","Settings", function ($http, Settings){
 
         this.obtenerDatos = function(ruta){
 
 
-            return $http.get("https://api.themoviedb.org/3/" + ruta, {
+            return $http.get(Settings.apiUrl + ruta, {
 
                 params:{
-                    "api_key":"826b523c417cbb888744b13031d846c2",
-                    "language": "es"
+                    "api_key":Settings.apiKey,
+                    "language": Settings.apiLang
                 },
 
                 cache : true

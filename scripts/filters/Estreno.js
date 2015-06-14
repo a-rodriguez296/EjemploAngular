@@ -1,7 +1,7 @@
 
 //Mientras no se llamen dependencias no hay necesidad de poner el array
 angular
-    .module("imdbcutre")
+    .module("imbdcutre")
     .filter("estreno", function(){
 
         //Un filtro siempre debe recibir un parametro
