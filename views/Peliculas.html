@@ -3,12 +3,15 @@
 <table class="table table-stripped">
 
     <!--Table row-->
-    <tr ng-repeat="pelicula in peliculas">
+    <!-- | orderBy es el filtro que se aplcia para que las peliculas se ordenen por fecha -->
+    <tr ng-repeat="pelicula in peliculas | orderBy: ['release_date', 'original_title'] ">
 
         <!--//Fila-->
         <!-- Se utiliza :: para crear un one-time binding -->
         <td>{{ ::pelicula.original_title}}</td>
-        <td>{{ ::pelicula.release_date}}</td>
+
+        <!-- la salida de date:"shortDate" es el parametro que recibe estreno -->
+        <td>{{ ::pelicula.release_date | date:"shortDate" | estreno }}</td>
         <td>
             <span class="badge">{{::pelicula.vote_average}}</span>
         </td>

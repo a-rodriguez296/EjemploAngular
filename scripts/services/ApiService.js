@@ -14,6 +14,5 @@ angular
 
                 cache : true
             });
-
         };
     }]);
