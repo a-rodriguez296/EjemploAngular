@@ -1,0 +1,16 @@
+<tr>
+
+    <!--//Fila-->
+    <!-- Se utiliza :: para crear un one-time binding -->
+    <td>
+        <!-- Como la url es dinamica se debe poner ng-href. Si fuera estática se pone href -->
+        <a ng-href="#/peliculas/{{ ::model.id }}/detalles ">{{ ::model.original_title}}</a>
+
+    </td>
+
+    <!-- la salida de date:"shortDate" es el parametro que recibe estreno -->
+    <td>{{ ::model.release_date | date:"shortDate" | estreno }}</td>
+    <td>
+        <span class="badge">{{::model.vote_average}}</span>
+    </td>
+</tr>

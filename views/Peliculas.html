@@ -6,22 +6,35 @@
 
     <!--Table row-->
     <!-- | orderBy es el filtro que se aplcia para que las peliculas se ordenen por fecha -->
-    <tr ng-repeat="pelicula in peliculas | orderBy: ['release_date', 'original_title'] ">
 
-        <!--//Fila-->
-        <!-- Se utiliza :: para crear un one-time binding -->
+<!--    <tr ng-repeat="pelicula in peliculas | orderBy: ['release_date', 'original_title'] ">
+
+        &lt;!&ndash;//Fila&ndash;&gt;
+        &lt;!&ndash; Se utiliza :: para crear un one-time binding &ndash;&gt;
         <td>
-            <!-- Como la url es dinamica se debe poner ng-href. Si fuera estática se pone href -->
+            &lt;!&ndash; Como la url es dinamica se debe poner ng-href. Si fuera estática se pone href &ndash;&gt;
             <a ng-href="#/peliculas/{{ ::pelicula.id }}/detalles ">{{ ::pelicula.original_title}}</a>
 
         </td>
 
-        <!-- la salida de date:"shortDate" es el parametro que recibe estreno -->
+        &lt;!&ndash; la salida de date:"shortDate" es el parametro que recibe estreno &ndash;&gt;
         <td>{{ ::pelicula.release_date | date:"shortDate" | estreno }}</td>
         <td>
             <span class="badge">{{::pelicula.vote_average}}</span>
         </td>
-    </tr>
+    </tr>-->
 
+    <tbody>
+
+
+        <!--Se itera sobre la directiva-->
+        <tr elemento-tabla ng-repeat="pelicula in peliculas | orderBy: ['release_date', 'original_title']"
+                       model = "pelicula">
+
+
+
+
+        </tr>
+    </tbody>
 
 </table>
